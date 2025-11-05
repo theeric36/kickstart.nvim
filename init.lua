@@ -169,7 +169,7 @@ vim.o.confirm = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.expandtab = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -778,16 +778,6 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
-      formatters = {
-        stylua = {
-          prepend_args = {
-            '--indent-type',
-            'Spaces',
-            '--indent-width',
-            '2',
-          },
-        },
       },
     },
   },
