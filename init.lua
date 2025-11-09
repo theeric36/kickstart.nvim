@@ -208,6 +208,13 @@ vim.keymap.set('x', 'p', 'pgvy', { desc = 'Pasting without replacing clipboard' 
 vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
 vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
 
+vim.keymap.set('n', '<leader>`', function()
+  vim.cmd.new()
+  vim.cmd.term()
+  vim.cmd.wincmd 'J'
+  vim.api.nvim_win_set_height(0, 15)
+end, { desc = 'Open a small terminal in the bottom' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -230,7 +237,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('TermOpen', {
   desc = 'Enters terminal in insert mode',
-  group = vim.api.nvim_create_augroup('kickstart-term-open', { clear = true }),
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
   pattern = '*',
   command = 'startinsert',
 })
