@@ -208,12 +208,13 @@ vim.keymap.set('x', 'p', 'pgvy', { desc = 'Pasting without replacing clipboard' 
 vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
 vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
 
-vim.keymap.set('n', '<leader>`', function()
-  vim.cmd.new()
-  vim.cmd.term()
-  vim.cmd.wincmd 'J'
-  vim.api.nvim_win_set_height(0, 15)
-end, { desc = 'Open a small terminal in the bottom' })
+-- vim.keymap.set({'n', 't'}, '<leader>`', function()
+--   vim.cmd.new()
+--   vim.cmd.term()
+--   vim.cmd.wincmd 'J'
+--   vim.api.nvim_win_set_height(0, 15)
+-- end, { desc = 'Open a small terminal in the bottom' })
+vim.keymap.set({ 'n', 't' }, '<leader>`', '<cmd>Floaterminal<CR>', { desc = 'Toggle a floating terminal window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -1007,7 +1008,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
