@@ -207,6 +207,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('x', 'p', 'pgvy', { desc = 'Pasting without replacing clipboard' })
 vim.keymap.set('x', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
 vim.keymap.set('x', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save current buffer' })
 
 -- vim.keymap.set({'n', 't'}, '<leader>`', function()
 --   vim.cmd.new()
@@ -698,7 +699,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
